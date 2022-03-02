@@ -28,4 +28,11 @@ jobs:
     - name: Update Version
       run: |
           version=$(cat ./charts/helm-example/values.yaml | grep version: | awk '{print $2}')
-          echo "${version}"        
+          git_sha=${GITHUB_SHA::7}
+          sed -i "s/$version/main-$git_sha/" ./charts/helm-example/values.yaml
+    
+    - name: Commit and push changes
+      uses: devops-infra/action-commit-push@v0.3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        commit_message: Version updated
