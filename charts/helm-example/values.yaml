@@ -6,8 +6,8 @@ replicaCount: 1
 
 image:
   pullPolicy: IfNotPresent
-  repository: 145664717845.dkr.ecr.ap-south-1.amazonaws.com/gitops-argocd
-  version: main-8471792
+  repository: zzahid99/gitops-argocd
+  version: main-827e037
 
 imagePullSecrets: []
 nameOverride: ""
@@ -32,7 +32,7 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: LoadBalancer
+  type: NodePort
   port: 80
 
 ingress:
