@@ -24,4 +24,8 @@ jobs:
         registry: docker.io
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        
+    
+    - name: Update Version
+      run: |
+          version=$(cat ./charts/helm-example/values.yaml | grep version: | awk '{print $2}')
+          echo "${version}"        
