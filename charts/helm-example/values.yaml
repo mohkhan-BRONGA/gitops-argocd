@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   pullPolicy: IfNotPresent
   repository: mohsinalikhan/gitops-argocd
-  version: main-d8752a1
+  version: main-a8c2283
 
 imagePullSecrets: []
 nameOverride: ""
